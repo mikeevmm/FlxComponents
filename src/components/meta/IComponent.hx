@@ -1,7 +1,6 @@
 package components.meta;
 import components.Object;
 import flixel.FlxState;
-import interfaces.IStateCallbacks;
 
 /**
  * @author Miguel M.
