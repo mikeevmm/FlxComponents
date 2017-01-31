@@ -1,7 +1,6 @@
 package components.data;
-import components.physics.ShapeComponent;
-import components.visual.SpriteComponent;
 import flixel.FlxState;
+import components.visual.SpriteComponent;
 import components.meta.IComponent;
 import components.Object;
 
@@ -24,9 +23,6 @@ class WidthHeightComponent implements IComponent {
     public function componentAdded(object:Object):Void {
         parentObject = object;
         
-        _shapeComponent = object.getComponent(ShapeComponent);
-        if (_shapeComponent != null)
-            return;
         _spriteComponent = object.getComponent(SpriteComponent);
         if (_spriteComponent != null)
             return;
@@ -44,16 +40,12 @@ class WidthHeightComponent implements IComponent {
     public function parentRemoved(state:FlxState):Void {}
     
     function get_width():Float {
-        if (_shapeComponent != null) 
-            return _shapeComponent.shape.boundingRect.width;
         if (_spriteComponent != null)
             return _spriteComponent.sprite.width;
         return 0;
     }
     
     function get_height():Float {
-        if (_shapeComponent != null)
-            return _shapeComponent.shape.boundingRect.height;
         if (_spriteComponent != null)
             return _spriteComponent.sprite.height;
         return 0;
